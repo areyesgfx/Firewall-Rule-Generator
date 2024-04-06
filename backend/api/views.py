@@ -19,6 +19,15 @@ class ThreatSourceListCreate(generics.ListCreateAPIView):
             serializer.save(author=self.request.user)
         else:
             print(serializer.errors)
+
+class ThreatSourceDelete(generics.DestroyAPIView):
+    serializer_class = ThreatSourceSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        user = self.request.user
+        return ThreatSource.objects.filter(author=user)
+    
     
 
 

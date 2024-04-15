@@ -27,8 +27,8 @@ class ThreatSourceDelete(generics.DestroyAPIView):
     def get_queryset(self):
         user = self.request.user
         return ThreatSource.objects.filter(author=user)
-    
-    
+
+
 
 
 class CreateUserView(generics.CreateAPIView):

@@ -3,8 +3,8 @@ import api from "../api";
 
 function Home() {
   const [ThreatSources, setThreatSources] = useState([]);
-  const [content, setContent] = useState("");
-  const [title, setTitle] = useState("");
+  const [name, setName] = useState("");
+  const [url, setUrl] = useState("");
 
   useEffect(() => {
     getThreatSources();
@@ -34,7 +34,7 @@ function Home() {
   const createThreatSource = (e) => {
     e.preventDefault();
     api
-      .post("/api/threatsources/", { content, title })
+      .post("/api/threatsources/", { name, url })
       .then((res) => {
         if (res.status === 201) alert("Threat Source created!");
         else alert("Failed to make a threat source.");
@@ -50,24 +50,24 @@ function Home() {
       </div>
       <h2>Add a Threat Source</h2>
       <form onSubmit={createThreatSource}>
-        <label htmlFor="title">Title:</label>
+        <label htmlFor="name">Name:</label>
         <br />
         <input
           type="text"
-          id="title"
-          name="title"
+          id="name"
+          name="name"
           required
-          onChange={(e) => setTitle(e.target.value)}
-          value={title}
+          onChange={(e) => setName(e.target.value)}
+          value={name}
         />
-        <label htmlFor="content">Content:</label>
+        <label htmlFor="url">Url:</label>
         <br />
         <textarea
-          id="content"
-          name="content"
+          id="url"
+          name="url"
           required
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
+          value={url}
+          onChange={(e) => setUrl(e.target.value)}
         ></textarea>
         <br />
         <input type="submit" value="Submit"></input>

@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import api from "../api";
+import ThreatSource from "../components/ThreatSource";
+import "../styles/Home.css";
 
 function Home() {
   const [ThreatSources, setThreatSources] = useState([]);
@@ -26,9 +28,9 @@ function Home() {
       .then((res) => {
         if (res.status === 204) alert("Threat Source deleted!");
         else alert("Failed to delete threat source.");
+        getThreatSources();
       })
       .catch((error) => alert(error));
-    getThreatSources();
   };
 
   const createThreatSource = (e) => {
@@ -38,15 +40,22 @@ function Home() {
       .then((res) => {
         if (res.status === 201) alert("Threat Source created!");
         else alert("Failed to make a threat source.");
+        getThreatSources();
       })
       .catch((err) => alert(err));
-    getThreatSources();
   };
 
   return (
     <div>
       <div>
         <h2>Threat Sources</h2>
+        {ThreatSources.map((threatSource) => (
+          <ThreatSource
+            threatSource={threatSource}
+            onDelete={deleteThreatSource}
+            key={threatSource.id}
+          />
+        ))}
       </div>
       <h2>Add a Threat Source</h2>
       <form onSubmit={createThreatSource}>
@@ -63,6 +72,7 @@ function Home() {
         <label htmlFor="url">Url:</label>
         <br />
         <textarea
+          type="url"
           id="url"
           name="url"
           required

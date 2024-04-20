@@ -1,0 +1,45 @@
+/* FirewallRuleGenerator.css */
+
+/* Container for the whole component */
+.firewallRuleGenerator {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin: auto;
+}
+
+.firewallRuleGenerator div input {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 20px;
+}
+
+/* .dropdowns {
+    position: relative;
+    font-weight: bold;
+    padding: 10px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+} */
+
+.ruleBox {
+    padding-top: 20px;
+    text-align: center;
+}
+
+.firewallRuleGenerator p {
+    display: inline-block;
+    border: none;
+    padding-top: 20px;
+    height: 100px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.firewallRuleGenerator input[type="image"] {
+    padding-left: 20px;
+    vertical-align: middle; /* Align with the middle of the text */
+}

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import api from "../api";
 import ThreatSource from "../components/ThreatSource";
 import "../styles/Home.css";
+import FirewallRuleGenerator from "../components/FirewallRuleGenerator";
 
 function Home() {
   const [ThreatSources, setThreatSources] = useState([]);
@@ -48,7 +49,8 @@ function Home() {
   return (
     <div>
       <div>
-        <h2>Threat Sources</h2>
+        <FirewallRuleGenerator />
+        <h2>Important IPs</h2>
         {ThreatSources.map((threatSource) => (
           <ThreatSource
             threatSource={threatSource}
@@ -57,7 +59,7 @@ function Home() {
           />
         ))}
       </div>
-      <h2>Add a Threat Source</h2>
+      <h2>Add an Address</h2>
       <form onSubmit={createThreatSource}>
         <label htmlFor="name">Name:</label>
         <br />
@@ -69,7 +71,7 @@ function Home() {
           onChange={(e) => setName(e.target.value)}
           value={name}
         />
-        <label htmlFor="url">Url:</label>
+        <label htmlFor="url">IP Address:</label>
         <br />
         <textarea
           type="url"

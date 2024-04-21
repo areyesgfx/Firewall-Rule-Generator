@@ -7,7 +7,7 @@ import FirewallRuleGenerator from "../components/FirewallRuleGenerator";
 function Home() {
   const [ThreatSources, setThreatSources] = useState([]);
   const [name, setName] = useState("");
-  const [url, setUrl] = useState("");
+  const [address, setAddress] = useState("");
 
   useEffect(() => {
     getThreatSources();
@@ -37,7 +37,7 @@ function Home() {
   const createThreatSource = (e) => {
     e.preventDefault();
     api
-      .post("/api/threatsources/", { name, url })
+      .post("/api/threatsources/", { name, address })
       .then((res) => {
         if (res.status === 201) alert("Threat Source created!");
         else alert("Failed to make a threat source.");
@@ -71,16 +71,16 @@ function Home() {
           onChange={(e) => setName(e.target.value)}
           value={name}
         />
-        <label htmlFor="url">IP Address:</label>
+        <label htmlFor="address">IP Address:</label>
         <br />
-        <textarea
-          type="url"
-          id="url"
-          name="url"
+        <input
+          type="text"
+          id="address"
+          name="address"
           required
-          value={url}
-          onChange={(e) => setUrl(e.target.value)}
-        ></textarea>
+          value={address}
+          onChange={(e) => setAddress(e.target.value)}
+        ></input>
         <br />
         <input type="submit" value="Submit"></input>
       </form>

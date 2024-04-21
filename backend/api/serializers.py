@@ -15,5 +15,5 @@ class UserSerializer(serializers.ModelSerializer):
 class ThreatSourceSerializer(serializers.ModelSerializer):
     class Meta:
         model = ThreatSource
-        fields = ['id', 'name', 'url']
+        fields = ['id', 'name', 'address']
         extra_kwargs = {'author': {'read_only': True}}

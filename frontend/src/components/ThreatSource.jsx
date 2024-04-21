@@ -5,7 +5,7 @@ function ThreatSource({ threatSource, onDelete }) {
   return (
     <div>
       <p className="threatSource-name">{threatSource.name}</p>
-      <p className="threatSource-url">{threatSource.url}</p>
+      <p className="threatSource-address">{threatSource.address}</p>
       <button
         className="delete-button"
         onClick={() => onDelete(threatSource.id)}

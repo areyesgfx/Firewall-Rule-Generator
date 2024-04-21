@@ -11,19 +11,55 @@
     margin: auto;
 }
 
-.firewallRuleGenerator div input {
-    font-size: 16px;
-    font-weight: bold;
-    padding: 20px;
+.inputs-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 15px;
 }
 
-/* .dropdowns {
+.select-container {
+    display: flex;
+    justify-content: center;
     position: relative;
-    font-weight: bold;
-    padding: 10px;
+    padding: 0 5px 15px 0;
+}
+
+.select-container .icon-container {
+    width: 75px;
+    height: 60px;
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.icon-container img {
+    filter: invert(1);
+}
+
+.select-box {
     box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-} */
+    border: none;
+    border-radius: 5px;
+    appearance: none;
+    width: 200px;
+    height: 60px;
+    padding: 0 30px 0 15px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+}
+
+.select-box:hover {
+    background-color: #0056b3;
+}
+
+::placeholder {
+    color: white;
+}
 
 .ruleBox {
     padding-top: 20px;

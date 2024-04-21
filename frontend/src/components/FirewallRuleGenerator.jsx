@@ -89,88 +89,121 @@ function FirewallRuleGenerator() {
   return (
     <div className="firewallRuleGenerator">
       {/* Input fields for protocol, IP, etc. */}
-      <div>
-        <select
-          name="chain"
-          id="chain"
-          required
-          onChange={(e) => setChain(e.target.value)}
-        >
-          <option value="CHAIN">CHAIN</option>
-          <option value="INPUT">INPUT</option>
-          <option value="FORWARD">FORWARD</option>
-          <option value="OUTPUT">OUTPUT</option>
-        </select>
+      <div className="inputs-container">
+        <div className="select-container">
+          <select
+            className="select-box"
+            name="chain"
+            id="chain"
+            required
+            onChange={(e) => setChain(e.target.value)}
+          >
+            <option value="">CHAIN</option>
+            <option value="INPUT">INPUT</option>
+            <option value="FORWARD">FORWARD</option>
+            <option value="OUTPUT">OUTPUT</option>
+          </select>
+          <div className="icon-container">
+            <img src="https://utfs.io/f/63344de1-3e48-411e-bd50-3ccd72f908cd-gyk5lm.png"></img>
+          </div>
+        </div>
 
-        <select
-          name="protocol"
-          id="protocol"
-          required
-          onChange={(e) => setProtocol(e.target.value)}
-        >
-          <option value="PROTOCOL">PROTOCOL</option>
-          <option value="TCP">TCP</option>
-          <option value="UDP">UDP</option>
-          <option value="IP">IP</option>
-          <option value="ICMP">ICMP</option>
-        </select>
+        <div className="select-container">
+          <select
+            className="select-box"
+            name="protocol"
+            id="protocol"
+            required
+            onChange={(e) => setProtocol(e.target.value)}
+          >
+            <option value="">PROTOCOL</option>
+            <option value="TCP">TCP</option>
+            <option value="UDP">UDP</option>
+            <option value="IP">IP</option>
+            <option value="ICMP">ICMP</option>
+          </select>
+          <div className="icon-container">
+            <img src="https://utfs.io/f/63344de1-3e48-411e-bd50-3ccd72f908cd-gyk5lm.png"></img>
+          </div>
+        </div>
 
-        <select
-          name="action"
-          id="action"
-          required
-          onChange={(e) => setAction(e.target.value)}
-        >
-          <option value="ACTION">ACTION</option>
-          <option value="ACCEPT">ACCEPT</option>
-          <option value="DROP">DROP</option>
-          <option value="QUEUE">QUEUE</option>
-        </select>
+        <div className="select-container">
+          <select
+            className="select-box"
+            name="action"
+            id="action"
+            required
+            onChange={(e) => setAction(e.target.value)}
+          >
+            <option value="">ACTION</option>
+            <option value="ACCEPT">ACCEPT</option>
+            <option value="DROP">DROP</option>
+            <option value="QUEUE">QUEUE</option>
+          </select>
+          <div className="icon-container">
+            <img src="https://utfs.io/f/63344de1-3e48-411e-bd50-3ccd72f908cd-gyk5lm.png"></img>
+          </div>
+        </div>
 
-        <input
-          type="text"
-          id="srcIpAddress"
-          name="srcIpAddress"
-          placeholder="SOURCE ADDRESS"
-          required
-          onChange={(e) => setSrcIpAddress(e.target.value)}
-        />
+        <div className="select-container">
+          <input
+            className="select-box"
+            type="text"
+            id="srcIpAddress"
+            name="srcIpAddress"
+            placeholder="SOURCE IP"
+            required
+            onChange={(e) => setSrcIpAddress(e.target.value)}
+          />
+        </div>
 
-        <input
-          type="number"
-          id="srcPort"
-          name="srcPort"
-          placeholder="SOURCE PORT"
-          required
-          onChange={(e) => setSrcPort(e.target.value)}
-        />
+        <div className="select-container">
+          <input
+            className="select-box"
+            type="number"
+            id="srcPort"
+            name="srcPort"
+            placeholder="SOURCE PORT"
+            required
+            onChange={(e) => setSrcPort(e.target.value)}
+          />
+        </div>
 
-        <input
-          type="text"
-          id="dstIpAddres"
-          name="dstIpAddres"
-          placeholder="DESTINATION ADDRESS"
-          required
-          onChange={(e) => setDstIpAddress(e.target.value)}
-        />
+        <div className="select-container">
+          <input
+            className="select-box"
+            type="text"
+            id="dstIpAddres"
+            name="dstIpAddres"
+            placeholder="DESTINATION IP"
+            required
+            onChange={(e) => setDstIpAddress(e.target.value)}
+          />
+        </div>
 
-        <input
-          type="number"
-          id="dstPort"
-          name="dstPort"
-          placeholder="DESTINATION PORT"
-          required
-          onChange={(e) => setDstPort(e.target.value)}
-        />
+        <div className="select-container">
+          <input
+            className="select-box"
+            type="number"
+            id="dstPort"
+            name="dstPort"
+            placeholder="DESTINATION PORT"
+            required
+            onChange={(e) => setDstPort(e.target.value)}
+          />
+        </div>
 
-        <input
-          type="number"
-          id="ruleOrder"
-          name="ruleOrder"
-          placeholder="RULE ORDER"
-          required
-          onChange={(e) => setRuleOrder(e.target.value)}
-        />
+        <div className="select-container">
+          <input
+            className="select-box"
+            type="number"
+            id="ruleOrder"
+            name="ruleOrder"
+            placeholder="RULE ORDER"
+            required
+            onChange={(e) => setRuleOrder(e.target.value)}
+          />
+        </div>
       </div>
       <div className="ruleBox">
         <p id="generatedRule">{generatedRule}</p>
